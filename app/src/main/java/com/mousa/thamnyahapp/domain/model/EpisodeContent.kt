@@ -1,0 +1,32 @@
+package com.mousa.thamnyahapp.domain.model
+
+data class EpisodeContent(
+    override val id: String,
+    override val name: String,
+    val seasonNumber: Int?,
+    val episodeType: String,
+    val podcastName: String,
+    val authorName: String,
+    override val description: String,
+    val number: Int?,
+    override val duration: Int,
+    override val avatarUrl: String,
+    val separatedAudioUrl: String,
+    val audioUrl: String,
+    val releaseDate: String,
+    val podcastId: String,
+    val chapters: List<Any>,
+    val paidIsEarlyAccess: Boolean,
+    val paidIsNowEarlyAccess: Boolean,
+    val paidIsExclusive: Boolean,
+    val paidTranscriptUrl: String?,
+    val freeTranscriptUrl: String?,
+    val paidIsExclusivePartially: Boolean,
+    val paidExclusiveStartTime: Int,
+    val paidEarlyAccessDate: String?,
+    val paidEarlyAccessAudioUrl: String?,
+    val paidExclusivityType: String?,
+    val podcastPopularityScore: Int,
+    val podcastPriority: Int,
+    override val score: Float
+) : Content()
