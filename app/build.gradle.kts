@@ -66,6 +66,9 @@ dependencies {
     // Coil for images
     implementation (libs.bundles.coil)
 
+    // Pagination
+    implementation (libs.bundles.paging)
+
     // For LazyHorizontalGrid
     implementation (libs.androidx.foundation)
 

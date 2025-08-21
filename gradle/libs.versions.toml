@@ -16,6 +16,7 @@ ksp = "2.1.21-2.0.1"
 okhttp = "4.12.0"
 retrofit = "2.11.0"
 moshi = "1.15.2"
+paging = "3.3.6"
 
 
 [libraries]
@@ -47,10 +48,14 @@ moshi-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", v
 retrofit-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+paging = {group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging" }
+pagination-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
+paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "paging" }
 
 [bundles]
 retrofit = ["retrofit", "retrofit-moshi", "moshi", "retrofit-interceptor"]
 coil = ["coil", "coil-okhttp"]
+paging = ["paging","pagination-compose","paging-common"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
