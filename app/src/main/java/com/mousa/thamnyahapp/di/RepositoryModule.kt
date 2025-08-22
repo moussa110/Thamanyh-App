@@ -1,6 +1,5 @@
 package com.mousa.thamnyahapp.di
 
-import com.mousa.thamnyahapp.data.paging.HomePagingSource
 import com.mousa.thamnyahapp.data.repository.HomeRepositoryImpl
 import com.mousa.thamnyahapp.domain.repository.HomeRepository
 import dagger.Binds
