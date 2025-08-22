@@ -4,11 +4,11 @@ import androidx.core.net.toUri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.mousa.thamnyahapp.data.mappers.HomeMapper
-import com.mousa.thamnyahapp.data.remote.api.HomeApiService
+import com.mousa.thamnyahapp.data.remote.datasource.HomeSectionsDatasource
 import com.mousa.thamnyahapp.domain.model.HomeSection
 
 class HomePagingSource(
-    private val apiService: HomeApiService,
+    private val datasource: HomeSectionsDatasource,
     private val homeMapper: HomeMapper
 ) : PagingSource<Int, HomeSection>() {
     
@@ -22,14 +22,18 @@ class HomePagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, HomeSection> {
         return try {
             val page = params.key ?: 1
-            
-            val response = apiService.getHomeSections(page)
+
+            val response = datasource.getHomeSections(page)
             val homeSections = homeMapper.mapToHomeSections(response)
-            
+
             val nextPage = response.paginationResponse.nextPage.let { nextPageUrl ->
-                extractPageNumberFromUrl(nextPageUrl)
+                if (page>= response.paginationResponse.totalPages) {
+                    null
+                } else {
+                    page+1
+                }
             }
-            
+
             LoadResult.Page(
                 data = homeSections,
                 prevKey = if (page == 1) null else page - 1,

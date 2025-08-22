@@ -1,5 +1,6 @@
 package com.mousa.thamnyahapp.data.mappers
 
+import com.mousa.thamnyahapp.data.remote.response.SectionResponse
 import com.mousa.thamnyahapp.data.remote.response.SectionsResponse
 import com.mousa.thamnyahapp.domain.model.Content
 import com.mousa.thamnyahapp.domain.model.ContentType
@@ -13,14 +14,18 @@ class HomeMapper @Inject constructor(
 
     fun mapToHomeSections(response: SectionsResponse): List<HomeSection> {
         return response.sectionResponses.map { sectionResponse ->
-            HomeSection(
-                name = sectionResponse.name,
-                type = mapToSectionType(sectionResponse.type),
-                contentType = mapToContentType(sectionResponse.contentType),
-                order = sectionResponse.order,
-                content = mapToContentList(sectionResponse.content, sectionResponse.contentType)
-            )
+            mapToHomeSection(sectionResponse)
         }
+    }
+
+    fun mapToHomeSection(sectionResponse: SectionResponse): HomeSection {
+        return HomeSection(
+            name = sectionResponse.name,
+            type = mapToSectionType(sectionResponse.type),
+            contentType = mapToContentType(sectionResponse.contentType),
+            order = sectionResponse.order,
+            content = mapToContentList(sectionResponse.content, sectionResponse.contentType)
+        )
     }
 
     private fun mapToContentList(

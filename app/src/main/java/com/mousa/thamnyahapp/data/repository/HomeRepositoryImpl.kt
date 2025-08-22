@@ -5,7 +5,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.mousa.thamnyahapp.data.mappers.HomeMapper
 import com.mousa.thamnyahapp.data.paging.HomePagingSource
-import com.mousa.thamnyahapp.data.remote.api.HomeApiService
+import com.mousa.thamnyahapp.data.remote.datasource.HomeSectionsDatasource
 import com.mousa.thamnyahapp.domain.model.HomeSection
 import com.mousa.thamnyahapp.domain.model.PaginationInfo
 import com.mousa.thamnyahapp.domain.repository.HomeRepository
@@ -13,18 +13,9 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class HomeRepositoryImpl @Inject constructor(
-    private val apiService: HomeApiService,
+    private val datasource: HomeSectionsDatasource,
     private val homeMapper: HomeMapper
 ) : HomeRepository {
-    
-    override suspend fun getHomeSections(page: Int): Result<List<HomeSection>> {
-        return try {
-            val response = apiService.getHomeSections(page)
-            Result.success(homeMapper.mapToHomeSections(response))
-        } catch (e: Exception) {
-            Result.failure(e)
-        }
-    }
     
     override fun getHomeSectionsStream(): Flow<PagingData<HomeSection>> {
         return Pager(
@@ -33,14 +24,14 @@ class HomeRepositoryImpl @Inject constructor(
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {
-                HomePagingSource(apiService, homeMapper)
+                HomePagingSource(datasource,homeMapper)
             }
         ).flow
     }
     
     override suspend fun getPaginationInfo(page: Int): PaginationInfo {
         return try {
-            val response = apiService.getHomeSections(page)
+            val response = datasource.getHomeSections(page)
             PaginationInfo(
                 nextPage = response.paginationResponse.nextPage,
                 totalPages = response.paginationResponse.totalPages,

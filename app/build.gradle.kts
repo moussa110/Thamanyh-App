@@ -70,6 +70,7 @@ dependencies {
 
     // Pagination
     implementation(libs.paging)
+    implementation(libs.pagination.compose)
 
     // For LazyHorizontalGrid
     implementation (libs.androidx.foundation)
