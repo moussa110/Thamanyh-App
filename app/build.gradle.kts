@@ -33,10 +33,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 }
@@ -67,7 +69,7 @@ dependencies {
     implementation (libs.bundles.coil)
 
     // Pagination
-    implementation (libs.bundles.paging)
+    implementation(libs.paging)
 
     // For LazyHorizontalGrid
     implementation (libs.androidx.foundation)
