@@ -34,8 +34,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.mousa.thamnyahapp.R
-import com.mousa.thamnyahapp.presentation.navigation.BottomNavItem
-import com.mousa.thamnyahapp.presentation.navigation.NavigationHost
+import com.mousa.thamnyahapp.presentation.composables.sections.navigation.BottomNavItem
+import com.mousa.thamnyahapp.presentation.composables.sections.navigation.NavigationHost
 import com.mousa.thamnyahapp.presentation.theme.Teal
 import com.mousa.thamnyahapp.presentation.theme.ThamnyahAppTheme
 import com.mousa.thamnyahapp.presentation.theme.White

@@ -1,4 +1,4 @@
-package com.mousa.thamnyahapp.presentation.composables
+package com.mousa.thamnyahapp.presentation.composables.componnents
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

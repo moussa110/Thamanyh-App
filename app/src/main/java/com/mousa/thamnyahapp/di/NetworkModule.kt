@@ -2,6 +2,7 @@ package com.mousa.thamnyahapp.di
 
 import com.mousa.thamnyahapp.BuildConfig
 import com.mousa.thamnyahapp.data.remote.api.HomeApiService
+import com.mousa.thamnyahapp.data.remote.api.SearchApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -13,12 +14,22 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Qualifier
 import javax.inject.Singleton
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class MainApi
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class SearchApi
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    
+
+
     @Provides
     @Singleton
     fun provideMoshi(): Moshi {
@@ -43,7 +54,8 @@ object NetworkModule {
             .writeTimeout(30, TimeUnit.SECONDS)
             .build()
     }
-    
+
+    @MainApi
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient, moshi: Moshi): Retrofit {
@@ -53,10 +65,29 @@ object NetworkModule {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }
-    
+
+    @SearchApi
     @Provides
     @Singleton
-    fun provideHomeApiService(retrofit: Retrofit): HomeApiService {
+    fun provideSearchRetrofit(okHttpClient: OkHttpClient, moshi: Moshi): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl("https://mock.apidog.com/m1/735111-711675-default/")
+            .client(okHttpClient)
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
+    }
+
+    @MainApi
+    @Provides
+    @Singleton
+    fun provideHomeApiService(@MainApi retrofit: Retrofit): HomeApiService {
         return retrofit.create(HomeApiService::class.java)
+    }
+
+    @SearchApi
+    @Provides
+    @Singleton
+    fun provideSearchService(@SearchApi retrofit: Retrofit): SearchApiService {
+        return retrofit.create(SearchApiService::class.java)
     }
 }

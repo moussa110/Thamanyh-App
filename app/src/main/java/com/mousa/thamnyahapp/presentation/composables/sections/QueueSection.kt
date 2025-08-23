@@ -1,4 +1,4 @@
-package com.mousa.thamnyahapp.presentation.composables
+package com.mousa.thamnyahapp.presentation.composables.sections
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.mousa.thamnyahapp.domain.model.Content
 import com.mousa.thamnyahapp.domain.model.HomeSection
+import com.mousa.thamnyahapp.presentation.composables.componnents.CustomAsyncImage
 
 @Composable
 fun QueueSection(section: HomeSection) {

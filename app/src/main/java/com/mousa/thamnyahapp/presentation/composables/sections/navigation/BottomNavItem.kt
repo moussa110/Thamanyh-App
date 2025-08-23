@@ -1,4 +1,4 @@
-package com.mousa.thamnyahapp.presentation.navigation
+package com.mousa.thamnyahapp.presentation.composables.sections.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Home

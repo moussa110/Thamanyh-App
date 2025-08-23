@@ -1,4 +1,4 @@
-package com.mousa.thamnyahapp.presentation.navigation
+package com.mousa.thamnyahapp.presentation.composables.sections.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import com.mousa.thamnyahapp.presentation.screen.home.HomeScreen
 import com.mousa.thamnyahapp.presentation.screen.home.HomeViewModel
 import com.mousa.thamnyahapp.presentation.screen.search.SearchScreen
+import com.mousa.thamnyahapp.presentation.screen.search.SearchViewModel
 
 @Composable
 fun NavigationHost(
@@ -25,7 +26,8 @@ fun NavigationHost(
             HomeScreen(viewModel = viewModel)
         }
         composable(Routes.SEARCH) {
-            SearchScreen()
+            val viewModel: SearchViewModel = hiltViewModel()
+            SearchScreen(viewModel)
         }
     }
 }

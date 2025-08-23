@@ -1,4 +1,4 @@
-package com.mousa.thamnyahapp.presentation.composables
+package com.mousa.thamnyahapp.presentation.composables.cards
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import com.mousa.thamnyahapp.domain.model.Content
+import com.mousa.thamnyahapp.presentation.composables.componnents.CustomAsyncImage
 
 @Composable
 fun SquareContentCard(

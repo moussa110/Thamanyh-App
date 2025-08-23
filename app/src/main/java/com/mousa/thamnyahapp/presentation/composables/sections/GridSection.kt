@@ -1,4 +1,4 @@
-package com.mousa.thamnyahapp.presentation.composables
+package com.mousa.thamnyahapp.presentation.composables.sections
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.mousa.thamnyahapp.domain.model.Content
 import com.mousa.thamnyahapp.domain.model.HomeSection
+import com.mousa.thamnyahapp.presentation.composables.componnents.CustomAsyncImage
 
 @Composable
 fun TwoLinesGridSection(section: HomeSection) {

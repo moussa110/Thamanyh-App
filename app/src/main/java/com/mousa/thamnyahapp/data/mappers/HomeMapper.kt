@@ -1,7 +1,7 @@
 package com.mousa.thamnyahapp.data.mappers
 
-import com.mousa.thamnyahapp.data.remote.response.SectionResponse
-import com.mousa.thamnyahapp.data.remote.response.SectionsResponse
+import com.mousa.thamnyahapp.data.remote.response.home.SectionResponse
+import com.mousa.thamnyahapp.data.remote.response.home.SectionsResponse
 import com.mousa.thamnyahapp.domain.model.Content
 import com.mousa.thamnyahapp.domain.model.ContentType
 import com.mousa.thamnyahapp.domain.model.HomeSection

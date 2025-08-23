@@ -44,7 +44,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -77,7 +76,6 @@ dependencies {
 
     //splash
     implementation(libs.androidx.core.splashscreen)
-
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
