@@ -32,7 +32,7 @@ private val DarkColorScheme = darkColorScheme(
 
 @Composable
 fun ThamnyahAppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = true,
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
@@ -50,6 +50,7 @@ fun ThamnyahAppTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = AppShapes,
         content = content
     )
 }

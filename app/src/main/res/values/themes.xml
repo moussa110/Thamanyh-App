@@ -2,4 +2,14 @@
 <resources>
 
     <style name="Theme.ThamnyahApp" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.ThamnyahApp.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/almmost_black</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo_text</item>
+        <item name="postSplashScreenTheme">@style/Theme.ThamnyahApp</item>
+        <item name="windowSplashScreenAnimationDuration">500</item>
+        <item name="windowSplashScreenIconBackgroundColor">@null</item>
+    </style>
+
+
 </resources>

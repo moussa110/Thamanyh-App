@@ -13,6 +13,9 @@ val fontFamily = FontFamily(
     Font(R.font.century_gothic_bold , FontWeight.Bold)
 )
 
+val arabicFontFamily = FontFamily(
+    Font(R.font.arabic_font),
+)
 
 val Typography = Typography(
     bodyLarge = TextStyle(
