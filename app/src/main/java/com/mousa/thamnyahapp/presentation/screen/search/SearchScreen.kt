@@ -15,6 +15,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.mousa.thamnyahapp.presentation.composables.componnents.LoadingScreen
@@ -37,8 +38,9 @@ fun SearchScreen(
     ) {
         TextField(
             value = query,
+
             onValueChange = viewModel::onQueryChange,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().testTag("SearchBar"),
             placeholder = { Text("Search") }
         )
 
@@ -46,7 +48,7 @@ fun SearchScreen(
 
         when (state) {
             is SearchUiState.Loading -> {
-                LoadingScreen()
+                LoadingScreen(modifier = Modifier.testTag("Loading"))
             }
 
             is SearchUiState.Success -> {
@@ -61,7 +63,7 @@ fun SearchScreen(
 
             is SearchUiState.Error -> {
                 Column(
-                    Modifier.fillMaxSize(),
+                    Modifier.fillMaxSize().testTag("ErrorView"),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -72,7 +74,7 @@ fun SearchScreen(
             }
 
             is SearchUiState.Empty -> {
-                Text("No results found")
+                Text("No results found", modifier = Modifier.testTag("EmptyView"))
             }
         }
     }

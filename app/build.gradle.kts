@@ -16,8 +16,7 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.mousa.thamnyahapp.HiltTestRunner"
     }
 
     buildTypes {
@@ -44,6 +43,7 @@ android {
 }
 
 dependencies {
+    // UI
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -74,14 +74,26 @@ dependencies {
     // For LazyHorizontalGrid
     implementation (libs.androidx.foundation)
 
-    //splash
+    // splash
     implementation(libs.androidx.core.splashscreen)
 
+    // Testing
     testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.truth)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    androidTestImplementation(libs.androidx.compose.ui.ui.test.junit46)
+    debugImplementation(libs.ui.test.manifest)
+
+    androidTestImplementation(libs.hilt.android.testing)
+    kspAndroidTest(libs.hilt.compiler.test)
+    testImplementation(kotlin("test"))
 }
