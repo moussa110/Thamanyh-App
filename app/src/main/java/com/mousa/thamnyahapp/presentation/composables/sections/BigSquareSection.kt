@@ -1,6 +1,5 @@
-package com.mousa.thamnyahapp.presentation.composables
+package com.mousa.thamnyahapp.presentation.composables.sections
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -12,6 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mousa.thamnyahapp.domain.model.AudioArticleContent
 import com.mousa.thamnyahapp.domain.model.HomeSection
+import com.mousa.thamnyahapp.presentation.composables.cards.SquareContentCard
 
 @Composable
 fun BigSquareSection(section: HomeSection) {

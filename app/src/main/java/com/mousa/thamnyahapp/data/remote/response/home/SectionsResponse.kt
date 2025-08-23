@@ -1,4 +1,4 @@
-package com.mousa.thamnyahapp.data.remote.response
+package com.mousa.thamnyahapp.data.remote.response.home
 
 
 import com.squareup.moshi.Json

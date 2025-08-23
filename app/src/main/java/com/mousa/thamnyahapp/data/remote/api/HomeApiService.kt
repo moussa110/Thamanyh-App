@@ -1,6 +1,6 @@
 package com.mousa.thamnyahapp.data.remote.api
 
-import com.mousa.thamnyahapp.data.remote.response.SectionsResponse
+import com.mousa.thamnyahapp.data.remote.response.home.SectionsResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

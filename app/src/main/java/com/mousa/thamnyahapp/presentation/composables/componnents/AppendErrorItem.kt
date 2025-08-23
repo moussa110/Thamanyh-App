@@ -1,4 +1,4 @@
-package com.mousa.thamnyahapp.presentation.composables
+package com.mousa.thamnyahapp.presentation.composables.componnents
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
