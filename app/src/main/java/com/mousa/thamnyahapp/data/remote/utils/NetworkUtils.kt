@@ -5,14 +5,25 @@ import retrofit2.Response
 import java.io.IOException
 import java.net.ConnectException
 
-suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): T {
+suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): ResultWrapper<T> {
     return try {
         val apiResponse = apiCall.invoke()
-        if (!apiResponse.isSuccessful) throw NetworkError.General()
-        else if (apiResponse.body() == null) throw NetworkError.ResponseIsNull()
-        else apiResponse.body()!!
+        if (!apiResponse.isSuccessful) {
+            ResultWrapper.Error(NetworkError.General())
+        } else if (apiResponse.body() == null) {
+            ResultWrapper.Error(NetworkError.ResponseIsNull())
+        } else {
+            ResultWrapper.Success(apiResponse.body()!!)
+        }
     } catch (throwable: Throwable) {
-        throw throwable.toFailure()
+        ResultWrapper.Error(throwable.toFailure())
+    }
+}
+
+suspend fun <T> safeApiCallForPaging(apiCall: suspend () -> Response<T>): T {
+    return when (val result = safeApiCall(apiCall)) {
+        is ResultWrapper.Success -> result.data
+        is ResultWrapper.Error -> throw result.error // PagingSource يعرف يهندل ده
     }
 }
 

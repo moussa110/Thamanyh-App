@@ -40,7 +40,7 @@ class HomeMapper @Inject constructor(
     private fun mapToSectionType(type: String): SectionType {
         return when (type) {
             "square" -> SectionType.SQUARE
-            "big_square" -> SectionType.BIG_SQUARE
+            "big_square","big square" -> SectionType.BIG_SQUARE
             "2_lines_grid" -> SectionType.TWO_LINES_GRID
             "queue" -> SectionType.QUEUE
             else -> SectionType.UNKNOWN

@@ -7,5 +7,4 @@ import kotlinx.coroutines.flow.Flow
 
 interface HomeRepository {
     fun getHomeSectionsStream(): Flow<PagingData<HomeSection>>
-    suspend fun getPaginationInfo(page: Int): PaginationInfo
 }
